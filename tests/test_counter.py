@@ -13,14 +13,14 @@ async def test_initial_response(create_test_client):
 
 @pytest.mark.asyncio
 async def test_second_response(create_test_app, create_test_client):
-    # Counter 2
+    # Counter 1
     response = await create_test_client.get("/")
     body = await response.get_data()
 
-    # Counter 3
+    # Counter 2
     response = await create_test_client.get("/")
     body = await response.get_data()
-    assert "Counter: 3" in str(body)
+    assert "Counter: 2" in str(body)
 
     # check on the model itself
     async with create_test_app.app_context():
@@ -29,4 +29,4 @@ async def test_second_response(create_test_app, create_test_client):
         result = await conn.fetch_all(counter_query)
         result_row = result[0]
         count = result_row["count"]
-        assert count == 3
+        assert count == 2
