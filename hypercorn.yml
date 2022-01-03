@@ -1,0 +1,8 @@
+access_log_format = "%(h)s %(l)s %(l)s %(t)s %(R)s %(s)s %(b)s %(f)s %(a)s %(D)s"
+accesslog = "./log/hypercorn-access.log"
+errorlog = "./log/hypercorn-error.log"
+loglevel = "INFO"
+# bind = "unix:/tmp/hypercorn.sock"
+# user = "www-data"
+# server_names = "localhost"
+debug = "True"

@@ -1,0 +1,9 @@
+alembic
+asyncpg
+databases
+quart
+pytest
+pytest-asyncio
+python-dotenv
+psycopg2-binary
+sqlalchemy
