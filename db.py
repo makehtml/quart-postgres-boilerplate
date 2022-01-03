@@ -1,15 +1,12 @@
 from databases import Database
 from quart import current_app
-import sqlalchemy
+from sqlalchemy import MetaData
 
-metadata = sqlalchemy.MetaData()
+metadata = MetaData()
 
 
 async def db_connection():
-    database_url = f"postgresql://{current_app.config['DB_USERNAME']}:"
-    database_url += f"{current_app.config['DB_PASSWORD']}@"
-    database_url += f"{current_app.config['DB_HOST']}:5432/"
-    database_url += f"{current_app.config['DATABASE_NAME']}"
+    database_url = f"postgresql://{current_app.config['DB_USERNAME']}:{current_app.config['DB_PASSWORD']}@{current_app.config['DB_HOST']}:5432/{current_app.config['DB_NAME']}"
     database = Database(database_url, min_size=5, max_size=20)
 
     return database

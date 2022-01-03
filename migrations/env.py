@@ -37,7 +37,7 @@ config.set_section_option(section, "DB_USERNAME", os.environ.get("DB_USERNAME"))
 config.set_section_option(section, "DB_PASSWORD", os.environ.get("DB_PASSWORD"))
 config.set_section_option(section, "DB_HOST", os.environ.get("DB_HOST"))
 config.set_section_option(
-    section, "DATABASE_NAME", os.environ.get("DATABASE_NAME")
+    section, "DB_NAME", os.environ.get("DB_NAME")
 )
 
 # other values from the config, defined by the needs of env.py,

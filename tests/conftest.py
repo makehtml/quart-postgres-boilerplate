@@ -15,7 +15,7 @@ from db import metadata
 @pytest.fixture
 async def create_db():
     print("Creating db")
-    db_name = os.environ["DATABASE_NAME"]
+    db_name = os.environ["DB_NAME"]
     db_host = os.environ["DB_HOST"]
     db_username = os.environ["DB_USERNAME"]
     db_password = os.environ["DB_PASSWORD"]
@@ -29,7 +29,7 @@ async def create_db():
     engine = create_engine(db_uri + db_name)
     conn = engine.connect()
 
-    db_test_name = os.environ["DATABASE_NAME"] + "_test"
+    db_test_name = os.environ["DB_NAME"] + "_test"
 
     # drop database if exists from previous run
     try:
@@ -54,7 +54,7 @@ async def create_db():
         "DB_USERNAME": db_username,
         "DB_PASSWORD": db_password,
         "DB_HOST": db_host,
-        "DATABASE_NAME": db_test_name,
+        "DB_NAME": db_test_name,
         "DB_URI": db_uri + db_test_name,
         "TESTING": True,
     }
